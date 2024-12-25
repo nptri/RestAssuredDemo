@@ -1,0 +1,18 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "InvoicePayment";
+// option java_outer_classname = "HelloWorldProto";
+// option objc_class_prefix = "HLW";
+// package helloworld;
+
+message CreateRequest {
+    bool flag = 1;
+}
+message CreateResponse {
+    string barcode = 1;
+    string message = 2;
+    string returnCode = 3;
+}
+service InvoicePayment {
+    rpc BarcodeGenerate (CreateRequest) returns (CreateResponse);
+}
